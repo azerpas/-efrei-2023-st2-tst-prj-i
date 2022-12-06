@@ -17,13 +17,13 @@
 | 12 | Team      |   1670322187792   |   Get All Team                                                             | Should display the list of all the teams                          |          Yes                                  |
 | 13 | Team,Employee |   1670322182975   | Delete a team                                                          | The team should be deleted from the list.                                     |   Yes                                         |
 | 14 | Team          |   1670321991355   | Delete a team                                                          | Every employees of the team should not have this team anymore.                |  No, the employee belonging to the team is getting deleted also                                          |
-| 15 | Employe,Team  |      | Delete an employee                                                     | The employee should be removed from all the teams                             |                                            |
-| 18 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
-| 19 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
-| 20 | Team   |      | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
-| 21 | Employee  |      |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
-| 22 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
-| 23 | Employee | 1670321758517 | Employee should have none or 1 team | display one or no team | Yes |
+| 15 | Employe,Team  |     | Delete an employee                                                     | The employee should be removed from its team                             |                                            |
+| 16 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
+| 17 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
+| 18 | Team   |      | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
+| 19 | Employee  |      |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
+| 20 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
+| 21 | Employee | 1670321758517 | Employee should have none or 1 team | display one or no team | Yes |
 
 ## Questions / specs not explicit : 
 
