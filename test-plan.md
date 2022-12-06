@@ -21,7 +21,7 @@
 | 16 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
 | 17 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
 | 18 | Team   |   1670323142594   | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
-| 19 | Employee  |   1670323175045   |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
+| 19 | Employee  |   1670323175045   |   Check Delete Response            |      Name and email should be display when deleting an employee ([#2](https://github.com/azerpas/efrei-2023-st2-tst-prj-i/issues/2))                            |   Yes                                         |
 | 20 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
 | 21 | Employee | 1670321758517 | Employee should have none or 1 team | display one or no team | Yes |
 
