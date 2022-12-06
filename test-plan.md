@@ -3,7 +3,7 @@
 
 | N° | Entity        | Date | Description                                                            | Expected result                                                               | Validated                                  |
 | -- | ------------- | ---- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------ |
-| 1  | Employee      |      | Create an employee                                                     | We should find this same employee in the list of employees.                   | Yes                                        |
+| 1  | Employee      |   1670320285470   | Create an employee                                                     | We should find this same employee in the list of employees.                   | Yes                                        |
 | 2  | Employee      |      | Input should be filtering types (numeric, letters, special characters) | Number input should not accept strings                                        | No (Zip code field accept negative values) |
 | 3  | Employee      |      | Form should be expecting required inputs                               | The form should not create the entity if a required input is empty yet.       | Yes                                        |
 | 4  | Employee      |      | Server should check for unique field (email)                           | Using the same email twice should result in an error                          | No (should not be accepted)                |
