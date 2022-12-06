@@ -1,5 +1,5 @@
-- Commit c1aefcac148967c35d27f16f356816d9a8e8ef4f marks the start of v1.0.3 testing
-- Commit a7546b91e2d64c3ba5a1fd42e1bd30afa84462f6 marks the start of v1.0.2 testing
+- Commit [c1aefcac148967c35d27f16f356816d9a8e8ef4f](https://github.com/azerpas/efrei-2023-st2-tst-prj-i/tree/c1aefcac148967c35d27f16f356816d9a8e8ef4f) marks the start of v1.0.3 testing
+- Commit [a7546b91e2d64c3ba5a1fd42e1bd30afa84462f6](https://github.com/azerpas/efrei-2023-st2-tst-prj-i/tree/a7546b91e2d64c3ba5a1fd42e1bd30afa84462f6) marks the start of v1.0.2 testing
 
 | N° | Entity        | Date | Description                                                            | Expected result                                                               | Validated                                  |
 | -- | ------------- | ---- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------ |
