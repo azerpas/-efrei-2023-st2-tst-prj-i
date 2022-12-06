@@ -6,3 +6,4 @@
 | 4  | 1670320624961 | We forgot to add the test id:21 `name and email should be displayed when deleting an employee` in the the test plan v1.0.2, but we're adding it in the v1.0.3 |
 | 5  | 1670321295591 | We noticed that the bug `Fix bug when editing second line of address` that should have been fixed in v1.0.3 is still not fixed |
 | 6  | 1670321758517 | We discovered that an employee can only have one team, thus we added a test |
+| 7   | 1670322737162 | We discovered that a team name must be unique |
