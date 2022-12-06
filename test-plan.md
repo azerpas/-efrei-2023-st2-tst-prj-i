@@ -17,3 +17,14 @@
 | 15 | Employe,Team  |      | Delete an employee                                                     | The employee should be removed from all the teams                             |                                            |
 | 18 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
 | 19 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
+
+
+## Questions / specs not explicit : 
+
+- An employee can be a part of severals teams ?
+
+- A team can contain various managers ?
+
+- An employee that is manager can be a manager for other teams ? 
+
+ 
