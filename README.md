@@ -5,6 +5,7 @@
 - [Bug tracker](https://github.com/azerpas/efrei-2023-st2-tst-prj-i/issues)
 
 ## Dev
+- Install [`yarn`](https://yarnpkg.com/getting-started/install)
 - Install dependencies
 ```sh
 yarn install
