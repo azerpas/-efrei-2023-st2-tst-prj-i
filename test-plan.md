@@ -22,6 +22,7 @@
 | 19 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
 | 20 | Team   |      | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
 | 21 | Employee  |      |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
+| 22 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
 
 ## Questions / specs not explicit : 
 
