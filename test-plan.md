@@ -12,7 +12,7 @@
 | 7  | Employee      |      | Should be able to be added to a team                                   | Employee should appear in team members list                                   | Yes                                        |
 | 8  | Employee      |      | Should be able to be deleted                                           | Employee should be removed from employee list                                 | Yes                                          |
 | 9  | Employee      |      | Shouldn’t be able to modify employee contract                          | Contract property should be locked to modifications                           |                                            |
-| 10 | Team          |      | Create a team                                                          | We should find this same team in the list of teams                            |                                            |
+| 10 | Team   |      | Create a team                                                          | We should find this same team in the list of teams                            |   Yes                                         |
 | 11 | Team          |      | Form should be expecting required input                                | The form should not create the entity if a required input is empty yet        |                                            |
 | 12 | Team          |      |                                                                        |                                                                               |                                            |
 | 13 | Team,Employee |      | Delete a team                                                          | The team should be deleted from the list.                                     |                                            |
@@ -20,7 +20,7 @@
 | 15 | Employe,Team  |      | Delete an employee                                                     | The employee should be removed from all the teams                             |                                            |
 | 18 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
 | 19 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
-
+| 20 | Team   |      | Create a team with space character " "                                        | We should get Server Error 500                           |   Yes                  |
 
 ## Questions / specs not explicit : 
 
