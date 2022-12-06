@@ -1,0 +1,12 @@
+{
+  "name": "efrei-2023-st2-tst-prj-i",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:azerpas/efrei-2023-st2-tst-prj-i.git",
+  "author": "azerpas <xskylix@hotmail.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.28.1"
+  },
+  "scripts": {}
+}
