@@ -24,6 +24,7 @@
 | 19 | Employee  |   1670323175045   |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
 | 20 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
 | 21 | Employee | 1670321758517 | Employee should have none or 1 team | display one or no team | Yes |
+| 22  | Team          | 1670322737162 | Create team with already used name                                     | Should not accept the creation |
 
 ## Questions / specs not explicit : 
 
