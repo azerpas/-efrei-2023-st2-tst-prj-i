@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
-    // Reset database
-    await page.goto('https://i.hr.dmerej.info/reset_db')
-    const submit = await page.$('button[type="submit"]')
-    await submit?.click()
+test.beforeEach(async () => {
+    const res = await fetch('https://i.hr.dmerej.info/reset_db', {
+        method: 'POST'
+    })
+    test.fail(res.ok === false, 'Failed to reset database')
 })
 
 test('has no employee', async ({ page }) => {
@@ -14,6 +14,6 @@ test('has no employee', async ({ page }) => {
 
     const body = await page.$('body')
     const text = await body?.textContent()
-    
+
     await expect(text).toContain('No employees yet.')
 })
