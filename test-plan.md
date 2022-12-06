@@ -11,7 +11,7 @@
 | 6  | Employee      |   1670321414810   | Should be able to be promoted as manager                               | Employee appears as manager                                                   | Yes                                        |
 | 7  | Employee      |   1670321437027   | Should be able to be added to a team                                   | Employee should appear in team members list                                   | Yes                                        |
 | 8  | Employee      |   1670321586696   | Should be able to be deleted                                           | Employee should be removed from employee list                                 | Yes                                          |
-| 9  | Employee      |      | Shouldn’t be able to modify employee contract                          | Contract property should be locked to modifications                           |                                            |
+| 9  | Employee      |   1670321647081   | Shouldn’t be able to modify employee contract                          | Contract property should be locked to modifications                           |  No: the contract readonly date property can be modified if we modify the HTML                                          |
 | 10 | Team   |      | Create a team                                                                 | We should find this same team in the list of teams                            |   Yes                                         |
 | 11 | Team          |      | Form should be expecting required input                                | The form should not create the entity if a required input is empty yet        |                                            |
 | 12 | Team          |      |                                                                        |                                                                               |                                            |
@@ -23,10 +23,11 @@
 | 20 | Team   |      | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
 | 21 | Employee  |      |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
 | 22 | Employee | 1670321175222 | Updating employee address | Fields should be updated on update | No: the address line 2 keeps getting replaced by address line 1 |
+| 23 | Employee | 1670321758517 | Employee should have none or 1 team | display one or no team | Yes |
 
 ## Questions / specs not explicit : 
 
-- An employee can be a part of severals teams ?
+- An employee can be a part of severals teams ? No
 
 - A team can contain various managers ?
 
