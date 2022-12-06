@@ -21,6 +21,7 @@
 | 18 | Team          |      | Reset database                                                         | List of team should be empty and display “No employees yet”                   |                                            |
 | 19 | Employee      |      | Reset database                                                         | List of employee should be empty                                              |                                            |
 | 20 | Team   |      | Create a team with space character " "                                        | We shouldn't get Server Error 500                           |   No (Fail with Server Error 500)                  |
+| 21 | Employee  |      |   Check Delete Response            |      Name and email should be display when deleting an employee                             |   Yes                                         |
 
 ## Questions / specs not explicit : 
 
