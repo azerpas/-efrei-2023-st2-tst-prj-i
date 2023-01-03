@@ -7,3 +7,5 @@
 | 5  | 1670321295591 | We noticed that the bug `Fix bug when editing second line of address` that should have been fixed in v1.0.3 is still not fixed (https://github.com/azerpas/efrei-2023-st2-tst-prj-i/issues/16) |
 | 6  | 1670321758517 | We discovered that an employee can only have one team, thus we added a test |
 | 7   | 1670322737162 | We discovered that a team name must be unique |
+| 9   | 1670322737162 | We chose to implement the page object model for our tests |
+| 10   | 1672743948426 | We ask ourselves if it was worth it and useful to implement the homepage |
