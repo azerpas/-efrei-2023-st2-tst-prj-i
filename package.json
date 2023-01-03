@@ -6,6 +6,7 @@
   "author": "azerpas <xskylix@hotmail.fr>",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@playwright/test": "^1.28.1"
   },
   "scripts": {
