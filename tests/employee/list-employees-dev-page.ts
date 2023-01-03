@@ -24,7 +24,7 @@ export class ListEmployeeDevPage {
 	}
 
 	async getTextEmptyEmployees() {
-		if (this.table.isVisible()) {
+		if (await this.table.isVisible()) {
 			await expect(this.textEmptyEmployees).not.toBeVisible();
 		} else {
 			await expect(this.textEmptyEmployees).toBeVisible();
