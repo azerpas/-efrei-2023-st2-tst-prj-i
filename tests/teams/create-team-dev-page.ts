@@ -23,5 +23,11 @@ export class CreateTeamDevPage {
         await this.page.goto(`${BASE_URL}/add_team`);
     }
 
-    // TODO: add team etc...
+    async createTeam(name: string) {
+        if (this.page.url() !== `${BASE_URL}/add_team`) {
+            await this.goto()
+        }
+        await this.nameInput.fill(name)
+        await this.addBtn.click()
+    }
 }
