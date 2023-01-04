@@ -61,6 +61,12 @@ test.describe('Employees', () => {
 })
 */
 test.describe('Teams', () => {
+    test.beforeEach(async () => {
+        const res = await fetch('https://i.hr.dmerej.info/reset_db', {
+            method: 'POST'
+        })
+        test.fail(res.ok === false, 'Failed to reset database')
+    })
     // test 12
     test('has no team at the beginning', async ({ page }) => {
         const listTeamsDev = new ListTeamsDevPage(page);
@@ -83,5 +89,29 @@ test.describe('Teams', () => {
         const nbTeams = await listTeamsDev.getNbTeams();
         expect(nbTeams).toEqual(1);
     })
+
+    // test 10
+    test('create a team should add in the list of teams with good name', async ({ page }) => {
+        const createTeamsDev = new CreateTeamDevPage(page);
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("test");
+        const listTeamsDev = new ListTeamsDevPage(page);
+        const nbTeams = await listTeamsDev.getNbTeams();
+        expect(nbTeams).toEqual(1);
+        expect(await listTeamsDev.getTeamsInformations()).toContain("test");
+    })
+
+    /*
+    test('create a team with the same name as another team should not work', async ({ page }) => {
+        const createTeamsDev = new CreateTeamDevPage(page);
+        await createTeamsDev.goto();
+        const teamName = faker.name.firstName();
+        createTeamsDev.createTeam(teamName);
+        await createTeamsDev.goto();
+        createTeamsDev.createTeam(teamName);
+        await expect(createTeamsDev.page).toHaveTitle("HR DB - HR DB - Add Team");
+
+
+    })*/
 
 })
