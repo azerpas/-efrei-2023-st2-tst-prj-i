@@ -23,6 +23,10 @@ export class CreateTeamDevPage {
         await this.page.goto(`${BASE_URL}/add_team`);
     }
 
+    async getErrorMessage() {
+        return await this.page.locator(".invalid-feedback").textContent();
+    }
+
     async createTeam(name: string) {
         if (this.page.url() !== `${BASE_URL}/add_team`) {
             await this.goto()
