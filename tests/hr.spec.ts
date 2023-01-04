@@ -2,6 +2,7 @@ import { test, expect, Page } from '@playwright/test'
 import { faker } from '@faker-js/faker'
 import { ListTeamsDevPage } from './teams/list-teams-dev-page'
 import { CreateTeamDevPage } from './teams/create-team-dev-page'
+import { BASE_URL } from '@constants/index'
 
 test.beforeEach(async () => {
     const res = await fetch('https://i.hr.dmerej.info/reset_db', {
@@ -133,6 +134,29 @@ test.describe('Teams', () => {
         expect(nbTeams).toEqual(0);
     })
 
+    // Test 16
+    test('Reset database should delete all teams from the list of teams', async ({ page }) => {
+        const createTeamsDev = new CreateTeamDevPage(page);
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("team1");
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("team2");
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("team3");
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("team4");
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("team5");
 
+        const listTeamsDev = new ListTeamsDevPage(page);
+
+        const nbTeamsBeforeResetDB = await listTeamsDev.getNbTeams();
+        expect(nbTeamsBeforeResetDB).toEqual(5);
+
+        await listTeamsDev.resetDatabase();
+        const nbTeamsAfterResetDB = await listTeamsDev.getNbTeams();
+        expect(nbTeamsAfterResetDB).toEqual(0);
+
+    })
 
 })

@@ -50,4 +50,8 @@ export class ListTeamsDevPage {
         await this.page.goto(`${BASE_URL}/team/delete/${id}`);
         await this.deleteBtn.click();
     }
+
+    async resetDatabase() {
+        await this.page.goto(`${BASE_URL}/reset_db`);
+    }
 }
