@@ -94,24 +94,29 @@ test.describe('Teams', () => {
     test('create a team should add in the list of teams with good name', async ({ page }) => {
         const createTeamsDev = new CreateTeamDevPage(page);
         await createTeamsDev.goto();
-        await createTeamsDev.createTeam("test");
+        const teamName = faker.company.name();
+        await createTeamsDev.createTeam(teamName);
         const listTeamsDev = new ListTeamsDevPage(page);
         const nbTeams = await listTeamsDev.getNbTeams();
         expect(nbTeams).toEqual(1);
-        expect(await listTeamsDev.getTeamsInformations()).toContain("test");
+        expect(await listTeamsDev.getTeamsInformations()).toContain(teamName);
     })
 
-    /*
+    // test 22
     test('create a team with the same name as another team should not work', async ({ page }) => {
         const createTeamsDev = new CreateTeamDevPage(page);
         await createTeamsDev.goto();
-        const teamName = faker.name.firstName();
-        createTeamsDev.createTeam(teamName);
+        const teamName = faker.company.name();
+        await createTeamsDev.createTeam(teamName);
+
+        await expect(createTeamsDev.page).toHaveTitle("HR DB - HR DB - Teams");
+
         await createTeamsDev.goto();
-        createTeamsDev.createTeam(teamName);
+        await createTeamsDev.createTeam(teamName);
+
         await expect(createTeamsDev.page).toHaveTitle("HR DB - HR DB - Add Team");
+        expect(await createTeamsDev.getErrorMessage()).toEqual("a team with the same name already exists");
 
-
-    })*/
+    })
 
 })
