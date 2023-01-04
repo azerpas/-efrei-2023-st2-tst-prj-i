@@ -10,9 +10,9 @@ export class CreateTeamDevPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.title = 'HR DB - HR DB - Add Team'
-        this.nameInput = page.locator('input')
-        this.addBtn = page.locator('button', { hasText: 'Add' })
+        this.title = 'HR DB - HR DB - Add Team';
+        this.nameInput = page.locator('input');
+        this.addBtn = page.locator('button', { hasText: 'Add' });
     }
 
     /**
