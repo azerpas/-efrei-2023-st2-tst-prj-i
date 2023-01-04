@@ -119,4 +119,20 @@ test.describe('Teams', () => {
 
     })
 
+    // test 13
+    test('Delete a team should delete it from the list of teams.', async ({ page }) => {
+        const createTeamsDev = new CreateTeamDevPage(page);
+        await createTeamsDev.goto();
+        const teamName = faker.company.name();
+        await createTeamsDev.createTeam(teamName);
+        const listTeamsDev = new ListTeamsDevPage(page);
+        const teamID = parseInt(await page.locator("a.btn.btn-danger").getAttribute("href").then((data) => data?.split('/')[3]) as string);
+        await listTeamsDev.deleteTeam(teamID);
+        const nbTeams = await listTeamsDev.getNbTeams();
+
+        expect(nbTeams).toEqual(0);
+    })
+
+
+
 })

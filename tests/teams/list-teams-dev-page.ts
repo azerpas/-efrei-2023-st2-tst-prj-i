@@ -11,8 +11,8 @@ export class ListTeamsDevPage {
     constructor(page: Page) {
         this.page = page;
         this.title = 'HR DB - HR DB - Teams'
-        this.tableCells = page.locator('td')
-        this.deleteBtn = page.locator('button', { hasText: 'Proceed' })
+        this.tableCells = page.locator('td');
+        this.deleteBtn = page.locator('button', { hasText: 'Proceed' });
     }
 
     /**
@@ -47,7 +47,7 @@ export class ListTeamsDevPage {
      * @returns {Promise<void>}
      */
     async deleteTeam(id: number) {
-        await this.page.goto(`${BASE_URL}/team/delete/${id}`)
-        await this.deleteBtn.click()
+        await this.page.goto(`${BASE_URL}/team/delete/${id}`);
+        await this.deleteBtn.click();
     }
 }
