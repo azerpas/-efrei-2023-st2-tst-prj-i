@@ -1,6 +1,7 @@
 import { test, expect, Page } from '@playwright/test'
 import { faker } from '@faker-js/faker'
 import { ListTeamsDevPage } from './teams/list-teams-dev-page'
+import { CreateTeamDevPage } from './teams/create-team-dev-page'
 
 test.beforeEach(async () => {
     const res = await fetch('https://i.hr.dmerej.info/reset_db', {
@@ -60,15 +61,27 @@ test.describe('Employees', () => {
 })
 */
 test.describe('Teams', () => {
-    test('has no team', async ({ page }) => {
+    // test 12
+    test('has no team at the beginning', async ({ page }) => {
         const listTeamsDev = new ListTeamsDevPage(page);
         await listTeamsDev.goto();
         await expect(listTeamsDev.page).toHaveTitle(/Teams/);
 
         const body = await listTeamsDev.page.$('body');
         const text = await body?.textContent();
-        const nbTeams = /*listTeamsDev.tableCells.count();*/ await page.locator('td').count();
+        const nbTeams = await listTeamsDev.getNbTeams();
         expect(nbTeams).toEqual(0);
         expect(text).toContain('No teams yet')
     })
+
+    // test 10
+    test('create a team should add in the list of teams', async ({ page }) => {
+        const createTeamsDev = new CreateTeamDevPage(page);
+        await createTeamsDev.goto();
+        await createTeamsDev.createTeam("test");
+        const listTeamsDev = new ListTeamsDevPage(page);
+        const nbTeams = await listTeamsDev.getNbTeams();
+        expect(nbTeams).toEqual(1);
+    })
+
 })

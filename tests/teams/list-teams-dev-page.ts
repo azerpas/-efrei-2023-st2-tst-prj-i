@@ -32,6 +32,10 @@ export class ListTeamsDevPage {
         return await this.tableCells.allTextContents()
     }
 
+    async getNbTeams() {
+        return await this.page.locator('tbody tr').count();
+    }
+
     /**
      * Delete a team by id.
      * This page is hidden from the homepage, so we added it to this page object model.
