@@ -1,3 +1,4 @@
+import { BASE_URL } from "@constants/index";
 import { expect, Locator, Page } from "@playwright/test";
 
 export class ListEmployeeDevPage {
@@ -13,7 +14,7 @@ export class ListEmployeeDevPage {
 		this.page = page;
 		this.title = page.locator("text=Employees");
 		this.editButton = page.locator("button", { hasText: "Edit" });
-		this.deleteButton = page.locator("button", { hasText: "Delete" });
+		this.deleteButton = page.locator("a.btn.btn-primary", { hasText: "Delete" });
 		this.homeButton = page.locator("a", { hasText: "Home" });
 		this.textEmptyEmployees = page.locator("text=No employees yet.");
 		this.table = page.locator("table > thead > tbody");
@@ -81,5 +82,20 @@ export class ListEmployeeDevPage {
 		await expect(this.page).toHaveURL("https://i.hr.dmerej.info/employees");
 		const tableLengthAfterDelete = await this.getTableLength();
 		expect(tableLengthBeforeDelete).toBeGreaterThan(tableLengthAfterDelete);
+	}
+
+	async getEmployeesInformations() {
+		return await this.page.locator('tbody tr td').allTextContents();
+	}
+
+	async getNbEmployees() {
+		return await this.page.locator('tbody tr').count();
+	}
+
+	async deleteEmployee(id: number) {
+		await this.page.goto(`${BASE_URL}/employee/delete/${id}`);
+	}
+	async resetDatabase() {
+		await this.page.goto(`${BASE_URL}/reset_db`);
 	}
 }

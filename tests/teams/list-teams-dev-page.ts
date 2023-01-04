@@ -40,6 +40,7 @@ export class ListTeamsDevPage {
         return await this.page.locator('tbody tr td').allTextContents();
     }
 
+
     /**
      * Delete a team by id.
      * This page is hidden from the homepage, so we added it to this page object model.
