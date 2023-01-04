@@ -10,9 +10,9 @@ export class CreateTeamDevPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.title = 'HR DB - HR DB - Add Team'
-        this.nameInput = page.locator('input')
-        this.addBtn = page.locator('button', { hasText: 'Add' })
+        this.title = 'HR DB - HR DB - Add Team';
+        this.nameInput = page.locator('input');
+        this.addBtn = page.locator('button', { hasText: 'Add' });
     }
 
     /**
@@ -21,6 +21,10 @@ export class CreateTeamDevPage {
      */
     async goto() {
         await this.page.goto(`${BASE_URL}/add_team`);
+    }
+
+    async getErrorMessage() {
+        return await this.page.locator(".invalid-feedback").textContent();
     }
 
     async createTeam(name: string) {

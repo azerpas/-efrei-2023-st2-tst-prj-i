@@ -11,8 +11,8 @@ export class ListTeamsDevPage {
     constructor(page: Page) {
         this.page = page;
         this.title = 'HR DB - HR DB - Teams'
-        this.tableCells = page.locator('td')
-        this.deleteBtn = page.locator('button', { hasText: 'Proceed' })
+        this.tableCells = page.locator('td');
+        this.deleteBtn = page.locator('button', { hasText: 'Proceed' });
     }
 
     /**
@@ -32,6 +32,15 @@ export class ListTeamsDevPage {
         return await this.tableCells.allTextContents()
     }
 
+    async getNbTeams() {
+        return await this.page.locator('tbody tr').count();
+    }
+
+    async getTeamsInformations() {
+        return await this.page.locator('tbody tr td').allTextContents();
+    }
+
+
     /**
      * Delete a team by id.
      * This page is hidden from the homepage, so we added it to this page object model.
@@ -39,7 +48,11 @@ export class ListTeamsDevPage {
      * @returns {Promise<void>}
      */
     async deleteTeam(id: number) {
-        await this.page.goto(`${BASE_URL}/team/delete/${id}`)
-        await this.deleteBtn.click()
+        await this.page.goto(`${BASE_URL}/team/delete/${id}`);
+        await this.deleteBtn.click();
+    }
+
+    async resetDatabase() {
+        await this.page.goto(`${BASE_URL}/reset_db`);
     }
 }

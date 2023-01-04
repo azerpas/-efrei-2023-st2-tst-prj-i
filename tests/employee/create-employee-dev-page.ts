@@ -2,6 +2,7 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { BASE_URL } from '@constants/index'
 import { Employee } from '@models/index';
+import { faker } from '@faker-js/faker';
 
 export class CreateEmployeeDevPage {
     readonly page: Page;
@@ -18,16 +19,16 @@ export class CreateEmployeeDevPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.title = 'HR DB - HR DB - Add Employee'
-        this.nameInput = page.locator('#id_name')
-        this.emailInput = page.locator('#id_email')
-        this.addressLine1Input = page.locator('#id_address_line1')
-        this.addressLine2Input = page.locator('#id_address_line2')
-        this.cityInput = page.locator('#id_city')
-        this.zipCodeInput = page.locator('#id_zip_code')
-        this.hiringDateInput = page.locator('#id_hiring_date')
-        this.jobTitleInput = page.locator('#id_job_title')
-        this.addBtn = page.locator('button', { hasText: 'Add' })
+        this.title = 'HR DB - HR DB - Add Employee';
+        this.nameInput = page.locator('#id_name');
+        this.emailInput = page.locator('#id_email');
+        this.addressLine1Input = page.locator('#id_address_line1');
+        this.addressLine2Input = page.locator('#id_address_line2');
+        this.cityInput = page.locator('#id_city');
+        this.zipCodeInput = page.locator('#id_zip_code');
+        this.hiringDateInput = page.locator('#id_hiring_date');
+        this.jobTitleInput = page.locator('#id_job_title');
+        this.addBtn = page.locator('button', { hasText: 'Add' });
     }
 
     /**
@@ -40,16 +41,30 @@ export class CreateEmployeeDevPage {
 
     async createEmployee(employee: Employee) {
         if (this.page.url() !== `${BASE_URL}/add_employee`) {
-            await this.goto()
+            await this.goto();
         }
-        await this.nameInput.fill(employee.name)
-        await this.emailInput.fill(employee.email)
-        await this.addressLine1Input.fill(employee.addressLine1)
-        await this.addressLine2Input.fill(employee.addressLine2)
-        await this.cityInput.fill(employee.city)
-        await this.zipCodeInput.fill(employee.zipCode)
-        await this.hiringDateInput.fill(employee.hiringDate)
-        await this.jobTitleInput.fill(employee.jobTitle)
-        await this.addBtn.click()
+        await this.nameInput.fill(employee.name);
+        await this.emailInput.fill(employee.email);
+        await this.addressLine1Input.fill(employee.addressLine1);
+        await this.addressLine2Input.fill(employee.addressLine2);
+        await this.cityInput.fill(employee.city);
+        await this.zipCodeInput.fill(/*employee.zipCode*/"91350");
+        await this.hiringDateInput.fill(employee.hiringDate);
+        await this.jobTitleInput.fill(employee.jobTitle);
+        await this.addBtn.click();
+    }
+
+    async generateRandomEmployee() {
+        const date = faker.date.between('2010-01-01T00:00:00.000Z', '2023-01-01T00:00:00.000Z');
+        return new Employee(
+            faker.name.firstName(),
+            faker.internet.email(),
+            faker.address.country(),
+            faker.address.cityName(),
+            faker.address.cityName(),
+            faker.address.zipCode(),
+            date.toISOString().slice(0, 10),
+            faker.name.jobTitle()
+        );
     }
 }
